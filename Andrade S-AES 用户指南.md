@@ -142,7 +142,7 @@
 
 #### 4.1.1 安装Java JDK
 
-- 如果您的计算机上没有安装Java JDK，请先下载并安装适用于您操作系统的Java JDK。您可以从Oracle官方网站 （https://www.oracle.com/java/technologies/javase-downloads.html） 或其他可信来源获取Java JDK的安装程序；
+- 如果您的计算机上没有安装Java JDK，请先下载并安装适用于您操作系统的Java JDK。您可以从Oracle官方网站 （ https://www.oracle.com/java/technologies/javase-downloads.html ） 或其他可信来源获取Java JDK的安装程序；
 - 安装Java JDK时，请按照安装向导的步骤进行操作。完成后，您将具备Java运行环境。
 
 
