@@ -74,7 +74,7 @@
 
 ​	⑧ IV：全称为Initialization Vector（初始向量），是在使用密码分组链模式时的一个重要参数；
 
-​	⑨CBC：全称为Cipher Block Chaining（密码分组链模式），是一种在密码学中常用的分组密码工作模式。它被用于对较长的消息或数据进行加密，并提供了一些重要的安全性特性。CBC 工作模式在多种加密算法中都有应用，包括 AES和 DES（Data Encryption Standard）等。
+​	⑨ CBC：全称为Cipher Block Chaining（密码分组链模式），是一种在密码学中常用的分组密码工作模式。它被用于对较长的消息或数据进行加密，并提供了一些重要的安全性特性。CBC 工作模式在多种加密算法中都有应用，包括 AES和 DES（Data Encryption Standard）等。
 
 
 
