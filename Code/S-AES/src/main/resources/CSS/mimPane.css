@@ -1,0 +1,7 @@
+#mimPane{
+    -fx-background-image: url("../img/true.jpg");
+    -fx-background-size: cover;
+}
+.textArea .content{
+    -fx-background-color: silver;
+}

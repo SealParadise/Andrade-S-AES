@@ -1,0 +1,14 @@
+#encodePane{
+    -fx-background-image: url("../img/true.jpg");
+    -fx-background-size: cover;
+}
+#decodePane{
+    -fx-background-image: url("../img/false.png");
+    -fx-background-size: cover;
+}
+.decodeInput{
+    -fx-text-fill: white;
+}
+.decodeOutput{
+    -fx-text-fill: silver;
+}

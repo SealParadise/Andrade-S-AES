@@ -1,0 +1,16 @@
+#multiPane{
+    -fx-background-image: url("../img/or.png");
+    -fx-background-size: cover;
+}
+#decodeSecretMessage{
+    -fx-text-fill: white;
+}
+#decodeKeyArea .content{
+    -fx-background-color: black;
+}
+#decodeKeyArea{
+    -fx-text-fill: white;
+}
+.decodeOutput{
+    -fx-text-fill: silver;
+}

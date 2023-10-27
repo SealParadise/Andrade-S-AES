@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.aes.controller.IndexController">
+   <children>
+      <TabPane prefHeight="449.0" prefWidth="821.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="加密模块">
+               <content>
+                  <Pane id="encodePane" prefHeight="200.0" prefWidth="200.0" stylesheets="@../CSS/indexCSS.css">
+                     <children>
+                        <TextField fx:id="binaryOriginalMessage" layoutX="128.0" layoutY="122.0" prefHeight="32.0" prefWidth="184.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="binaryEncodeKey" layoutX="128.0" layoutY="195.0" prefHeight="32.0" prefWidth="184.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Button layoutX="177.0" layoutY="320.0" mnemonicParsing="false" onAction="#binaryEncode" prefHeight="34.0" prefWidth="84.0" text="加密">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="70.0" layoutY="121.0" prefHeight="34.0" prefWidth="58.0" text="明文：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="70.0" layoutY="193.0" prefHeight="34.0" prefWidth="59.0" text="密钥：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="168.0" layoutY="43.0" prefHeight="41.0" prefWidth="103.0" text="二进制加密">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="396.0" orientation="VERTICAL" prefHeight="421.0" prefWidth="0.0" />
+                        <Label layoutX="574.0" layoutY="43.0" prefHeight="41.0" prefWidth="103.0" text="ASCII加密">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="476.0" layoutY="121.0" prefHeight="34.0" prefWidth="58.0" text="明文：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="ascOriginalMessage" layoutX="534.0" layoutY="122.0" prefHeight="32.0" prefWidth="184.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="ascEncodeKey" layoutX="534.0" layoutY="195.0" prefHeight="32.0" prefWidth="184.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="476.0" layoutY="193.0" prefHeight="34.0" prefWidth="59.0" text="密钥：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="584.0" layoutY="320.0" mnemonicParsing="false" onAction="#ascEncode" prefHeight="34.0" prefWidth="84.0" text="加密">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="binaryEncodeRes" layoutX="128.0" layoutY="263.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: silver;">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="ascEncodeRes" layoutX="534.0" layoutY="263.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: silver;">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="476.0" layoutY="262.0" prefHeight="34.0" prefWidth="59.0" text="密文：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="70.0" layoutY="262.0" prefHeight="34.0" prefWidth="59.0" text="密文：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+          <Tab text="解密模块">
+               <content>
+                  <Pane id="decodePane" prefHeight="200.0" prefWidth="200.0" stylesheets="@../CSS/indexCSS.css">
+                     <children>
+                        <Button layoutX="584.0" layoutY="320.0" mnemonicParsing="false" onAction="#ascDecode" prefHeight="34.0" prefWidth="84.0" style="-fx-background-color: black; -fx-border-color: white;" text="解密" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="574.0" layoutY="43.0" prefHeight="41.0" prefWidth="103.0" text="ASCII解密" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="476.0" layoutY="262.0" prefHeight="34.0" prefWidth="59.0" text="明文：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="70.0" layoutY="193.0" prefHeight="34.0" prefWidth="59.0" text="密钥：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="168.0" layoutY="43.0" prefHeight="41.0" prefWidth="103.0" text="二进制解密" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="396.0" orientation="VERTICAL" prefHeight="421.0" prefWidth="0.0" />
+                        <Label layoutX="476.0" layoutY="121.0" prefHeight="34.0" prefWidth="58.0" text="密文：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="ascDecodeKey" layoutX="534.0" layoutY="194.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black; -fx-border-color: white;" styleClass="decodeInput">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="70.0" layoutY="262.0" prefHeight="34.0" prefWidth="59.0" text="明文：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="binaryDecodeRes" layoutX="128.0" layoutY="263.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black; -fx-border-color: gray;" styleClass="decodeOutput">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="binarySecretMessage" layoutX="128.0" layoutY="122.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black; -fx-border-color: white;" styleClass="decodeInput">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="70.0" layoutY="121.0" prefHeight="34.0" prefWidth="58.0" text="密文：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="476.0" layoutY="193.0" prefHeight="34.0" prefWidth="59.0" text="密钥：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="ascDecodeRes" layoutX="534.0" layoutY="263.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black; -fx-border-color: gray;" styleClass="decodeOutput">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Button layoutX="177.0" layoutY="320.0" mnemonicParsing="false" onAction="#binaryDecode" prefHeight="34.0" prefWidth="84.0" style="-fx-background-color: black; -fx-border-color: white;" text="解密" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="binaryDecodeKey" layoutX="128.0" layoutY="194.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black; -fx-border-color: white;" styleClass="decodeInput">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="ascSecretMessage" layoutX="534.0" layoutY="122.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black; -fx-border-color: white;" styleClass="decodeInput">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+            <Tab text="中文模块">
+               <content>
+                  <Pane id="multiPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@../CSS/multiPaneCSS.css">
+                     <children>
+                        <TextField fx:id="chnOriginalMessage" layoutX="128.0" layoutY="122.0" prefHeight="32.0" prefWidth="184.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Button layoutX="177.0" layoutY="320.0" mnemonicParsing="false" onAction="#chnEncode" prefHeight="34.0" prefWidth="84.0" text="加密">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="70.0" layoutY="121.0" prefHeight="34.0" prefWidth="58.0" text="明文：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="70.0" layoutY="193.0" prefHeight="34.0" prefWidth="59.0" text="密钥：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="178.0" layoutY="43.0" prefHeight="41.0" prefWidth="85.0" text="中文加密">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="584.0" layoutY="43.0" prefHeight="41.0" prefWidth="84.0" text="中文解密" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="476.0" layoutY="121.0" prefHeight="34.0" prefWidth="58.0" text="密文：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField id="decodeSecretMessage" fx:id="chnSecretMessage" layoutX="534.0" layoutY="122.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black; -fx-border-color: white;">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="476.0" layoutY="193.0" prefHeight="34.0" prefWidth="59.0" text="密钥：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="584.0" layoutY="320.0" mnemonicParsing="false" onAction="#chnDecode" prefHeight="34.0" prefWidth="84.0" style="-fx-background-color: black; -fx-border-color: white;" text="解密" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="chnEncodeRes" layoutX="128.0" layoutY="263.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: silver;">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="476.0" layoutY="262.0" prefHeight="34.0" prefWidth="59.0" text="明文：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="70.0" layoutY="262.0" prefHeight="34.0" prefWidth="59.0" text="密文：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="chnDecodeRes" layoutX="534.0" layoutY="263.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black; -fx-border-color: gray;" styleClass="decodeOutput">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="chnEncodeKey" layoutX="129.0" layoutY="194.0" prefHeight="32.0" prefWidth="184.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField id="decodeSecretMessage" fx:id="chnDecodeKey" layoutX="534.0" layoutY="194.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black; -fx-border-color: white;">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+            <Tab text="双重加密">
+               <content>
+                  <Pane id="multiPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@../CSS/multiPaneCSS.css">
+                     <children>
+                        <TextField fx:id="doubleOriginalMessage" layoutX="128.0" layoutY="122.0" prefHeight="32.0" prefWidth="184.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Button layoutX="177.0" layoutY="320.0" mnemonicParsing="false" onAction="#doubleEncode" prefHeight="34.0" prefWidth="84.0" text="加密">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="70.0" layoutY="121.0" prefHeight="34.0" prefWidth="58.0" text="明文：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="70.0" layoutY="193.0" prefHeight="34.0" prefWidth="59.0" text="密钥：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="178.0" layoutY="43.0" prefHeight="41.0" prefWidth="85.0" text="双重加密">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="584.0" layoutY="43.0" prefHeight="41.0" prefWidth="84.0" text="双重解密" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="476.0" layoutY="121.0" prefHeight="34.0" prefWidth="58.0" text="密文：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField id="decodeSecretMessage" fx:id="doubleSecretMessage" layoutX="534.0" layoutY="122.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black; -fx-border-color: white;">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="476.0" layoutY="193.0" prefHeight="34.0" prefWidth="59.0" text="密钥：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="584.0" layoutY="320.0" mnemonicParsing="false" onAction="#doubleDecode" prefHeight="34.0" prefWidth="84.0" style="-fx-background-color: black; -fx-border-color: white;" text="解密" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="doubleEncodeRes" layoutX="128.0" layoutY="263.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: silver;">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="476.0" layoutY="262.0" prefHeight="34.0" prefWidth="59.0" text="明文：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="70.0" layoutY="262.0" prefHeight="34.0" prefWidth="59.0" text="密文：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="doubleEncodeKey" layoutX="129.0" layoutY="177.0" prefHeight="67.0" prefWidth="183.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea id="decodeKeyArea" fx:id="doubleDecodeKey" layoutX="535.0" layoutY="177.0" prefHeight="67.0" prefWidth="183.0" style="-fx-border-color: white;">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextArea>
+                        <TextField fx:id="doubleDecodeRes" layoutX="534.0" layoutY="263.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black; -fx-border-color: gray;" styleClass="decodeOutput">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+            <Tab text="中间相遇攻击">
+               <content>
+                  <Pane id="mimPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@../CSS/mimPane.css">
+                     <children>
+                        <TextField fx:id="MimOriginalMessage" layoutX="97.0" layoutY="149.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextField>
+                        <TextField fx:id="MimSecretMessage" layoutX="97.0" layoutY="231.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextField>
+                        <Button layoutX="164.0" layoutY="293.0" mnemonicParsing="false" onAction="#appendMessage" text="添加">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
+                        <Button layoutX="620.0" layoutY="178.0" mnemonicParsing="false" onAction="#MimDecode" text="破解">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
+                        <Button layoutX="449.0" layoutY="178.0" mnemonicParsing="false" onAction="#clearMessage" text="清空">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
+                        <TextArea fx:id="MessagePresent" layoutX="411.0" layoutY="43.0" prefHeight="111.0" prefWidth="315.0" styleClass="textArea">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextArea>
+                        <TextArea fx:id="MimKey" layoutX="412.0" layoutY="250.0" prefHeight="126.0" prefWidth="314.0" styleClass="textArea">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextArea>
+                        <Label layoutX="138.0" layoutY="71.0" text="输入明密文对">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="43.0" layoutY="152.0" text="明文：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="43.0" layoutY="234.0" text="密文：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="321.0" layoutY="86.0" text="明密文对：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="339.0" layoutY="301.0" text="密钥：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+            <Tab text="三重加密">
+               <content>
+                  <Pane id="multiPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@../CSS/multiPaneCSS.css">
+                     <children>
+                        <TextField fx:id="trebleOriginalMessage" layoutX="128.0" layoutY="122.0" prefHeight="32.0" prefWidth="184.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Button layoutX="177.0" layoutY="320.0" mnemonicParsing="false" onAction="#trebleEncode" prefHeight="34.0" prefWidth="84.0" text="加密">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="70.0" layoutY="121.0" prefHeight="34.0" prefWidth="58.0" text="明文：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="70.0" layoutY="193.0" prefHeight="34.0" prefWidth="59.0" text="密钥：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="178.0" layoutY="43.0" prefHeight="41.0" prefWidth="85.0" text="三重加密">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="584.0" layoutY="43.0" prefHeight="41.0" prefWidth="84.0" text="三重解密" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="476.0" layoutY="121.0" prefHeight="34.0" prefWidth="58.0" text="密文：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField id="decodeSecretMessage" fx:id="trebleSecretMessage" layoutX="534.0" layoutY="122.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black; -fx-border-color: white;">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="476.0" layoutY="193.0" prefHeight="34.0" prefWidth="59.0" text="密钥：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="584.0" layoutY="320.0" mnemonicParsing="false" onAction="#trebleDecode" prefHeight="34.0" prefWidth="84.0" style="-fx-background-color: black; -fx-border-color: white;" text="解密" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="trebleEncodeRes" layoutX="128.0" layoutY="263.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: silver;">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="476.0" layoutY="262.0" prefHeight="34.0" prefWidth="59.0" text="明文：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="70.0" layoutY="262.0" prefHeight="34.0" prefWidth="59.0" text="密文：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="trebleEncodeKey" layoutX="129.0" layoutY="177.0" prefHeight="67.0" prefWidth="183.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea id="decodeKeyArea" fx:id="trebleDecodeKey" layoutX="535.0" layoutY="177.0" prefHeight="67.0" prefWidth="183.0" style="-fx-border-color: white;">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextArea>
+                        <TextField fx:id="trebleDecodeRes" layoutX="534.0" layoutY="263.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black; -fx-border-color: gray;" styleClass="decodeOutput">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+            <Tab text="分组加密">
+               <content>
+                  <Pane id="multiPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@../CSS/multiPaneCSS.css">
+                     <children>
+                        <TextField fx:id="cbcOriginalMessage" layoutX="129.0" layoutY="90.0" prefHeight="32.0" prefWidth="184.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Button layoutX="177.0" layoutY="320.0" mnemonicParsing="false" onAction="#cbcEncode" prefHeight="34.0" prefWidth="84.0" text="加密">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="71.0" layoutY="89.0" prefHeight="34.0" prefWidth="58.0" text="明文：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="70.0" layoutY="203.0" prefHeight="34.0" prefWidth="59.0" text="密钥：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="178.0" layoutY="43.0" prefHeight="41.0" prefWidth="85.0" text="分组加密">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="584.0" layoutY="43.0" prefHeight="41.0" prefWidth="84.0" text="分组解密" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="477.0" layoutY="89.0" prefHeight="34.0" prefWidth="58.0" text="密文：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField id="decodeSecretMessage" fx:id="cbcSecretMessage" layoutX="534.0" layoutY="90.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black; -fx-border-color: white;">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="477.0" layoutY="203.0" prefHeight="34.0" prefWidth="59.0" text="密钥：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="584.0" layoutY="320.0" mnemonicParsing="false" onAction="#cbcDecode" prefHeight="34.0" prefWidth="84.0" style="-fx-background-color: black; -fx-border-color: white;" text="解密" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="cbcEncodeRes" layoutX="128.0" layoutY="263.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: silver;">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="477.0" layoutY="262.0" prefHeight="34.0" prefWidth="59.0" text="明文：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="70.0" layoutY="262.0" prefHeight="34.0" prefWidth="59.0" text="密文：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="cbcDecodeRes" layoutX="534.0" layoutY="263.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black; -fx-border-color: gray;" styleClass="decodeOutput">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="cbcEncodeKey" layoutX="129.0" layoutY="204.0" prefHeight="32.0" prefWidth="184.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField id="decodeSecretMessage" fx:id="cbcDecodeKey" layoutX="534.0" layoutY="204.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black; -fx-border-color: white;">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="cbcEncodeIV" layoutX="129.0" layoutY="148.0" prefHeight="32.0" prefWidth="184.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="36.0" layoutY="147.0" prefHeight="34.0" prefWidth="93.0" text="初始向量：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField id="decodeSecretMessage" fx:id="cbcDecodeIV" layoutX="534.0" layoutY="148.0" prefHeight="32.0" prefWidth="184.0" style="-fx-background-color: black; -fx-border-color: white;">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="444.0" layoutY="147.0" prefHeight="34.0" prefWidth="90.0" text="初始向量：" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
